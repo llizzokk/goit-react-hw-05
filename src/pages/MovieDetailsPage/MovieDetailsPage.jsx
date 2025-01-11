@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { fetchMovieDetails } from "../../services/api";
 import css from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState({});
+  const location = useLocation();
+
+  const previousPage = location.state ?? "/movies";
 
   useEffect(() => {
     fetchMovieDetails(movieId).then(setMovie);
@@ -15,13 +25,12 @@ const MovieDetailsPage = () => {
 
   return (
     <div className={css.wrap}>
-      <Link to="/" className={css.backBtn}>
-        {" "}
-        Go back{" "}
+      <Link to={previousPage} className={css.backBtn}>
+        Go back
       </Link>
       <div className={css.infoWrap}>
         <img
-          src={`https://image.tmdb.org/t/p/w400${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
           alt={movie.title}
           className={css.img}
         />

@@ -1,8 +1,10 @@
 import React from "react";
 import css from "./MovieList.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const MovieList = ({ movies }) => {
+  const location = useLocation();
+
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w200";
 
   return (
@@ -10,7 +12,7 @@ const MovieList = ({ movies }) => {
       {movies.map(({ id, title, poster_path }) => {
         return (
           <li key={id} className={css.movieItem}>
-            <Link to={`/movies/${id}`}>
+            <Link to={`/movies/${id}`} state={location}>
               {poster_path ? (
                 <img
                   src={`${IMAGE_BASE_URL}${poster_path}`}

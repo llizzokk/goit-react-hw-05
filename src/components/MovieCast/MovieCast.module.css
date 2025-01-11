@@ -1,0 +1,47 @@
+.wrap {
+  width: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.castList {
+  display: flex;
+  overflow-x: scroll;
+  white-space: nowrap;
+  gap: 15px;
+  padding: 8px;
+}
+
+.castItem {
+  border-radius: 4px;
+  flex-shrink: 0;
+  background-color: #969bc6;
+  overflow: hidden;
+  width: 200px;
+  height: 400px;
+}
+
+.img {
+  height: 300px;
+}
+
+.textWrap {
+  text-align: center;
+  padding: 10px;
+}
+
+.name {
+  text-wrap: wrap;
+  color: #fff;
+  font-size: 18px;
+}
+
+.role {
+  text-wrap: wrap;
+  color: #fff;
+  font-size: 16px;
+}
