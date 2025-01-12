@@ -40,10 +40,10 @@ const MovieDetailsPage = () => {
         </div>
       </div>
       <nav className={css.navList}>
-        <NavLink to="cast" className={css.navItem}>
+        <NavLink to="cast" state={previousPage} className={css.navItem}>
           Cast
         </NavLink>
-        <NavLink to="reviews" className={css.navItem}>
+        <NavLink to="reviews" state={previousPage} className={css.navItem}>
           Reviews
         </NavLink>
       </nav>
